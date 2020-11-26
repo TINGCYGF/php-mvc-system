@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>无标题文档</title>
+</head>
+
+<body>
+<a href="index.php?p=Admin&c=Test&a=add">添加商品</a>
+<table border='1' width='980' bordercolor='#000'>
+	<tr>
+		<th>编号</th> <th>名称</th> <th>出版社</th> <th>价格</th> <th>修改</th> <th>删除</th>
+	</tr>
+	<?php foreach($list as $rows):?>
+	<tr>
+		<td><?=$rows['bookid']?></td>
+		<td><?=$rows['bookname']?></td>
+		<td><?=$rows['concern']?></td>
+		<td><?=$rows['price']?></td>
+
+		<td><a href="index.php?p=Admin&c=Test&a=edit&bookid=<?=$rows['bookid']?>">修改</a></td>
+		<td><a href="index.php?p=Admin&c=Test&a=del&bookid=<?=$rows['bookid']?>" onclick="return confirm('确定要删除吗')">删除</a></td>
+	</tr>
+	<?php endforeach;?>
+</table>
+</body>
+</html>
